@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>CODE SOLVER</title>
+      <script>
+  function apelare()
+  {
+      let currency=document.getElementById("currencySelect").value;
+      let ordertype=document.getElementById("tradeSelect").value;
+      let limit=document.getElementById("limit").value;
+      let tp=document.getElementById("takeprofit").value;
+      let sl=document.getElementById("stoploss").value;
+      let mesajfinal="";
+      let mesajfinal2="";
+      mesajfinal+="@Nova Traders\n\n"+currency+'\n'+":dart:"+ordertype+" LIMIT "+limit+"\n\n"+":white_caheck_mark:TP: "+tp+"\n\n"+
+      ":x:SL: "+sl;
+      //mesajfinal2+=currency+'\n'+":dart:"+ordertype+" LIMIT "+limit+"\n\n"+":white_check_mark:TP: "+tp+"\n\n"+
+      //":x:SL: "+sl;
+      mesajfinal2+="🔥🌍"+currency+" "+ordertype+"🌍🔥"+"\n"+"🔰ENTRY: "+limit+"\n"+"SL: "+sl+"\n"+"TP: "+tp+"\n\nFREE SIGNAL\nThanks for your reactions and your support ❤️";
+      let tp2=parseFloat(tp);
+      let sl2=parseFloat(sl);
+      let limit2=parseFloat(limit);
+      let tp3=Math.abs(tp2-limit2);
+      let sl3=Math.abs(sl2-limit2);
+      let rewardtorisk=tp3/sl3;
+      rewardtorisk=parseInt(rewardtorisk);
+      mesajfinal+="\n\nRR "+rewardtorisk+":1";
+      document.getElementById("result").innerHTML=mesajfinal;
+      document.getElementById("result2").innerHTML=mesajfinal2;
+  }
+</script>
+</head>
+<body>
+
+
+<input id="currencySelect" style="width: 70px;">
+<select id="tradeSelect">
+  <option value="BUY">BUY</option>
+  <option value="SELL">SELL</option>
+</select><br>
+<input id="limit" placeholder="Limit"><br>
+<input id="takeprofit" placeholder="Take Profit"><br>
+<input id="stoploss" placeholder="Stop Loss">  
+<br>
+<br>
+<br>
+<p>RESULT MESSAGE:</p>
+<textarea rows ="10" cols="50" id="result" readonly></textarea><textarea rows ="10" cols="50" id="result2" readonly></textarea><br>
+<button style="font-size: 200%; color: blue; background-color: yellow;" onclick="apelare()">Done</button>
+<br>
+<br>
+<hr>
+<p>Other messages:</p>
+<br>
+<p><b>Take profit hit:</b></p>
+<textarea rows ="3" cols="20" id="result" readonly>TP hit🎯 + () Pips</textarea><br>
+<p><b>Triggered:</b></p>
+<textarea rows ="3" cols="20" id="result" readonly>Triggered 🏹</textarea><br>
+<p><b>Stop loss hit:</b></p>
+<textarea rows ="3" cols="20" id="result" readonly>SL hit ❌ - () Pips</textarea><br>
+<p><b>Close your order:</b></p>
+<textarea rows ="3" cols="20" id="result" readonly>✅ Totally close + () PIPS</textarea><br>
+<p><b>Breakeven:</b></p>
+<textarea rows ="3" cols="20" id="result" readonly>Move SL at entry 🚫 . Book some profit</textarea><br>
+<p><b>Entry missed. Close order</b></p>
+<textarea rows ="3" cols="20" id="result" readonly>Entry missed. Close order.</textarea><br>
+</body>
+</html>
